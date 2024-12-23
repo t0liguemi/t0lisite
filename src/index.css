@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #0e0c14;
+  color: white;
+}
+
+.coffeeContainer {
+  scroll-snap-align: center;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  position: relative;
+  height: 50vh;
+  min-width: 384px;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  font-size: x-large;
+  font-weight: bolder;
+  background-size: 0 0;
+}
+
+
+
+@media (min-width: 768px) {
+  p{margin-inline: 8px;
+  margin-bottom: 8px;}
+  .coffeeLabel{
+    display:none;
+  }
+   .coffeeContainer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-image: inherit;
+  background-size: cover;
+  transition: all 0.3s ease-in-out;
+  background-repeat: no-repeat;
+  background-position: 0% 25%;
+  width: 100%;
+  height: 100%;
+  filter: saturate(0) contrast(0.8) brightness(0.6);
+} 
+  .coffeeContainer:hover::before {
+    transition: all 0.3s ease-in-out;
+    background-position: 0% 35%;
+    filter: brightness(0.8) contrast(0.8) saturate(1);
+  }
+
+  .coffeeContainer > p {
+    transition: all 0.3s ease-in-out;
+    translate: 50px;
+    opacity: 0;
+    color: white;
+  }
+
+  .coffeeContainer:hover > p {
+    transition: all 0.3s ease-in-out;
+    translate: 0px;
+    opacity: 1;
+    color: white;
+  }
+}
+
+@keyframes coffeeCentered {
+  0% {
+    filter: saturate(0) contrast(0.8) brightness(0.3);
+  }
+  50% {
+    filter: saturate(0.8) contrast(0.8) brightness(0.8);
+    background-position: 0% 35%;
+  }
+  100% {
+    filter: saturate(0) contrast(0.8) brightness(0.3);
+  }
+}
+
+@keyframes textSlide {
+  0% {
+    translate: 50px;
+    opacity: 0;
+  }
+  25% {
+    translate: 0px;
+    opacity: 1;
+  }
+  100% {
+    translate: 50px;
+    opacity: 0;
+  }}
+
+@media (max-width: 767px) {
+  .coffeeContainer>p{
+    display: none;
+  }
+  .coffeeContainer {
+    filter: saturate(0) contrast(0.8) brightness(0.3);
+    animation: coffeeCentered;
+    animation-fill-mode: forwards;
+    animation-timeline: view();
+    animation-range: 20% 100%;
+  }
+  .coffeeLabel {
+    animation: textSlide linear;
+    animation-timeline: view();
+    animation-fill-mode: both;
+    animation-range: 10vh 80vh;
+  }
+}
+
+.filteredCoffee {
+  background-image: url("https://utfs.io/f/SzLQufMz28JIBpDLV6ZCDHoNWhvBVQZf481pUMJYGjy5sRrX");
+  background-position: 0 0;
+  background-size: cover;
+}
+
+.mokaCoffee {
+  background-image: url("https://utfs.io/f/SzLQufMz28JIhuJwyGg48x2dHFiGrS6eu4KkDaLXJ5ytU1jB");
+  background-position: 0 20%;
+  background-size: cover;
+}
+
+.frenchPressCoffee {
+  background-image: url("https://utfs.io/f/SzLQufMz28JIbb8NEURvbztKHlNOcIaApS6E4YjxWGCsFnyZ");
+  background-position: 0 20%;
+  background-size: cover;
+}
+
+.milkProcess {
+  background-image: url("https://utfs.io/f/SzLQufMz28JIzR7SGJYA45QhewiSWotHDrpX0uycVlLZm3fC");
+  background-position: 0 20%;
+  background-size: cover;
+}
